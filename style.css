@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+/* font-family: "Inter", sans-serif; */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css");
+
+@theme {
+  --color-my-primary: #15803d;
+  --color-my-primary-soft: #cff0dc;
+  --color-my-primary-softest: #f0fcf3;
+  --color-my-accent: #facc15;
+  --color-my-text-color: #1f2937;
+  --color-my-plant-section-bg: #166534;
+  --color-my-form-bg: #15803d;
+  --color-my-footer-bg: #14532d;
+
+  --font-inter: "Inter", sans-serif;
+}
+
+/* Custom CSS for global scrollbar hiding */
+/* For Firefox */
+html,
+body {
+  scrollbar-width: none;
+}
+
+/* For Chrome, Safari, Edge */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.my-btn-active {
+  background: var(--color-my-primary);
+  color: white;
+}
