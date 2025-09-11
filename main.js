@@ -1,31 +1,26 @@
-/* START OF HELPER FUNCTIONS */
-const fetchData = async (url) => {
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
-};
+import { fetchData } from "./js/api.js";
 
-let CART = {};
+export let CART = {};
 
-const getTotal = () => {
+export const getTotal = () => {
   return Object.values(CART).reduce((runningTotal, currentItem) => {
     const itemSubtotal = currentItem.price * currentItem.quantity;
     return runningTotal + itemSubtotal;
   }, 0);
 };
 
-const setTotal = (element, total) => {
+export const setTotal = (element, total) => {
   element.innerText = `৳${total}`;
 };
 
-const removeFromTheCart = (id) => {
+export const removeFromTheCart = (id) => {
   if (CART[id]) {
     delete CART[id]; // this line will obliterate the whole object from the cart
     renderCart();
   }
 };
 
-const renderCart = () => {
+export const renderCart = () => {
   cartItemsContainer.innerHTML = ``;
 
   if (Object.keys(CART).length === 0) {
@@ -59,11 +54,10 @@ const renderCart = () => {
       cartItemsContainer.appendChild(listItem);
     }
   }
-
   setTotal(cartTotalElement, getTotal());
 };
 
-const addToTheCart = (plant) => {
+export const addToTheCart = (plant) => {
   const { id, name, price } = plant;
 
   if (!CART[id]) {
@@ -73,6 +67,8 @@ const addToTheCart = (plant) => {
   }
   renderCart();
 };
+
+/* START OF HELPER FUNCTIONS */
 
 const renderPlantCards = (plants) => {
   cardsContainer.innerHTML = ``;
